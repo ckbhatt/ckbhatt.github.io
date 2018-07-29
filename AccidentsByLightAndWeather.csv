@@ -1,0 +1,10 @@
+Weather,Darkeness: No street lighting,Darkness: Street lighting unknown,Darkness: Street lights present and lit,Darkness: Street lights present but unlit,Daylight: Street light present
+Fine with high winds,384,51,1102,38,3436
+Fine without high winds,15364,4886,65443,1795,285679
+Fog or mist,537,54,571,26,1223
+Other,873,120,2229,77,4973
+Raining with high winds,996,88,2527,90,3419
+Raining without high winds,4039,691,16912,475,34943
+Snowing with high winds,178,8,120,8,419
+Snowing without high winds,400,60,780,18,1450
+Unknown,228,895,1474,36,5582
