@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="./css/theme/beige.css">
 <link rel="stylesheet" href="./lib/css/leaflet.css"/>
 <link rel="stylesheet" href="./lib/css/bootstrap.min.css">
+<script src="./lib/js/d3-annotation.min.js"></script>
+<script src="./lib/js/jquery-3.3.1.min.js"></script>
 <script src="./lib/js/d3.v3.min.js"></script>
   <script>
    d3v3 = d3
@@ -26,17 +28,63 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<section id="s1" data-transition="slide-in fade-out">
+				<section data-markdown>
+					<h3>UK Accidents Data Analysis with R and D3</h3>
+					<p style="font-size: 20">
+						<a href="#/about-vis">
+							<button>About the Visualization</button>
+						</a>
+					</p>
+					<p style="font-size: 10">
+						(Please use arrow keys or buttons at bottom right to navigate or just sit back and let slides auto play)
+					</p>
+				</section>
+				<section id="about-vis" data-autoslide="12000">
+					<h2> About the Visualization</h2>
+					<p style="text-align: left; font-size: 20">This visualization is based on Accidents data for United Kingdom, hosted publicly at
+					<a href="https://www.kaggle.com/daveianhickey/2000-16-traffic-flow-england-scotland-wales">Kaggle</a>.
+					I have used R for data wrangling and in this visualization I have used D3 to visualize
+					results.</p>
+					<p style="text-align: left; font-size: 20">First visualization shows pattern of accidents over different units of time
+					 interval. Second visualization shows affects of Light and Weather conditions on number
+					 of accidents.</p>
+					 <p style="text-align: left; font-size: 20">Following slide briefly describes elements of narrative visualizations covered in this project</p>
+					 </p> 
+				</section>
+				<section id="about-vis" data-autoslide="12000">
+				<h2>elements of narrative visualizations</h2>
+					<ul>
+						<li><b>Hybrid Structure</b> Interactive slideshow</li>
+						<li><b>Scenes</b> Slides which can be navigated in different directions and follow a theme.</li>
+						<li><b>Annontations</b> Bar charts are annotated with white text in a black box to indicate conclusions.</li>
+						<li><b>Parameters</b> First graph changes based on selected timeunit and second graph changes based on radio button.</li>
+						<li><b>Triggers</b> Slideshow control, dropdown and radio works as triggers.</li>
+					</ul>
+				</section>
+			</section>
+			<!-- 
+			<section>
+				<section>
+				</section>
+				<section>
+				</section>
+				<section>
+				</section>
+			</section>
+			 -->
+			<section>
+				<section id="s1" data-transition="slide-in fade-out" data-autoslide="10000">
 					Select unit of Time
-					<select id="timeUnit">
-					  <option value="Month">Month</option>
+					<select id="timeUnit" style="width: 4.2em;background-color: #fcfaef;">
+						<option value="Hour">Hour</option>
 					  <option value="Day">Day</option>
-					  <option value="Hour">Hour</option>
+					  <option value="Month">Month</option>
 					</select>
 					<svg id="svg1" width="960" height="500"></svg>
 					<script src="./js/s1.js"></script>
 				</section>
 				<section data-transition="slide-in fade-out">
+				R Code for Data Wrangling
 					<pre>
 						<code class="R" id="timeUnitCode">
 library(plyr)
@@ -50,20 +98,18 @@ write.csv(monthlyDF1, "~/dv/AccidentsByMonth.csv", row.names=FALSE)
 					</pre>
 				</section>
 			</section>
-			<section id="s11" data-transition="slide-in fade-out">
-				<svg id="svg11" width="960" height="500"></svg>
-				<script src="./js/s11.js"></script>
-			</section>
-			<section id="s2" data-transition="slide-in fade-out">
-				<svg id="svg2" width="960" height="500"></svg>
-				<script src="./js/s2.js"></script>
-			</section>
-			<section>
+			<!-- <section id="s5" data-transition="slide-in fade-out">
+					<svg id="svg5" width="960" height="600"></svg>
+					<script src="./js/pie.js"></script>
+			</section> -->
+			<!-- <section>
 				<section id="s3" data-transition="slide-in fade-out">
-					<svg id="svg3" width="960" height="600"></svg>
-					<script src="./js/s3.js"></script>
+						<svg id="svg3" width="960" height="600"></svg>
+						<script src="./js/s3.js"></script>
 				</section>
-				<section data-transition="slide-in fade-out">
+			</section> -->
+			<section>
+				<section data-transition="slide-in fade-out" data-autoslide="10000">
 					<label>
 						<input type="radio" name="mode" value="grouped" style="height: 30"/>
 						Grouped
@@ -73,14 +119,15 @@ write.csv(monthlyDF1, "~/dv/AccidentsByMonth.csv", row.names=FALSE)
 						Stacked
 					</label>
 					<div id="chart-svg"></div>
+					<p>Number of Accidents by Weather & Light Conditions</p>
 					<script src="./js/s4.js"></script>
 				</section>
-					
-				<section data-transition="slide-in fade-out">Slide 5</section>
-				<section data-transition="slide-in fade-out">Slide 6</section>
 			</section>
-			<section data-background-image="./thanks.gif" data-background-size="400px" data-transition="slide-in fade-out">
-				
+			<section data-background-image="./thanks.gif" data-transition="slide-in fade-out">
+				<h6>Chetan Kumar Bhatt</h6>
+					<p>
+					ckbhatt2@illinois.edu
+					</p>
 			</section>
 		</div>
 	</div>
@@ -88,6 +135,9 @@ write.csv(monthlyDF1, "~/dv/AccidentsByMonth.csv", row.names=FALSE)
 	<script>
 		Reveal.initialize();
 		Reveal.configure({ slideNumber: 'c/t' });
+		Reveal.configure({
+			  autoSlide: 5000
+		});
 		hljs.initHighlightingOnLoad();
 		var colors = ["#1b70fc", "#faff16", "#d50527", "#158940", "#f898fd", "#24c9d7", 
 			"#cb9b64", "#866888", "#22e67a", "#e509ae", "#9dabfa", "#437e8a", "#b21bff", 

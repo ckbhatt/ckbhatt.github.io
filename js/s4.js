@@ -5,7 +5,7 @@
 	
 	var margin = {top: 20, right: 50, bottom: 150, left: 75},
 	    width = 960 - margin.left - margin.right,
-	    height = 600 - margin.top - margin.bottom;
+	    height = 550 - margin.top - margin.bottom;
 	
 	var svg = d3.select("#chart-svg").append("svg")
 	    .attr("width", width + margin.left + margin.right)
@@ -38,7 +38,7 @@
 	
 	    var color = d3.scale.ordinal()
 	        .domain(headers)
-	        .range(["#98ABC5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c"]);
+	        .range(["#2678B2", "#FD7F28", "#339E34", "#D42A2F", "#9369BB"]);
 	      
 	    var xAxis = d3.svg.axis()
 	        .scale(xScale)
